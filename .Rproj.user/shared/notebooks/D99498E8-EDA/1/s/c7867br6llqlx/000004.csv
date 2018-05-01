@@ -1,0 +1,4 @@
+"0","```r
+jun_2000 %>% 
+  summarise(precipitacion_promedio = mean(precipitacion))
+```"

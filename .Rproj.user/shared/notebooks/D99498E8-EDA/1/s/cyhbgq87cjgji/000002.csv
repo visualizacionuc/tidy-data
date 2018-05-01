@@ -1,0 +1,22 @@
+"0","```r
+# precipitaciones_2000 <- precipitaciones_ordenado %>% 
+#   filter(anio == 2000)
+# 
+# ggplot(precipitaciones_2000, aes(x = fecha, y = precipitacion, color = anio)) +
+#   geom_col() +
+#   geom_hline(yintercept = 50, color = \"red\", linetype = \"dashed\") + 
+#   annotate(\"text\", min(precipitaciones_2000$fecha), 50, vjust = -1, label = \"50 mm\") +
+#   theme_bw() +
+#   theme(legend.position = \"none\") +
+#   ggtitle(\"Precipitaciones registradas en la RM en el año 2000\")
+precipitaciones_20xx <- precipitaciones_ordenado %>% 
+  filter(anio >= 2000)
+ggplot(precipitaciones_20xx, aes(x = fecha, y = precipitacion, color = anio)) +
+  geom_col() +
+  geom_hline(yintercept = 50, color = \"red\", linetype = \"dashed\") + 
+  facet_wrap(\"anio\", scales = \"free_x\", ncol = 4) +
+  theme_bw() +
+  theme(legend.position = \"none\",
+        axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggtitle(\"Precipitaciones registradas en la RM a contar del año 2000\")
+```"

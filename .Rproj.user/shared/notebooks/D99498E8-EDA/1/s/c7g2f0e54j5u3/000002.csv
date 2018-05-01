@@ -1,0 +1,20 @@
+"0","```r
+anios_m50 <- precipitaciones_ordenado %>% 
+  filter(precipitacion >= 50) %>% 
+  distinct(anio) %>% 
+  as_vector()
+anios_m50
+```"
+"1"," anio1  anio2  anio3  anio4  anio5  anio6  anio7  anio8  anio9 anio10 anio11 anio12 anio13 
+  1971   1972   1974   1978   1979   1981   1982   1984   1987   1990   1992   1997   2000 
+anio14 anio15 anio16 anio17 anio18 anio19 
+  2001   2002   2003   2005   2006   2008 
+"
+"0","```r
+anios_m50_2 <- precipitaciones_ordenado %>% 
+  filter(anio %in% anios_m50) %>% 
+  group_by(anio) %>% 
+  summarise(precipitacion = max(precipitacion))
+write_csv(anios_m50_2, \"anios_m50_2.csv\")
+anios_m50_2
+```"
