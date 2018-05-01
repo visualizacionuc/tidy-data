@@ -1,4 +1,4 @@
-# Procesamiento y Análisis de Datos
+# Tidy Data
 
 Módulo _Tidy Data_ del diplomado en [Visualización de Datos](http://diseno.uc.cl/curso/diplomado-en-visualizacion-de-datos/) de la Pontificia Universidad Católica de Chile.
 
@@ -12,6 +12,12 @@ Profesores: Joshua Kunst y Mauricio Vargas Sepúlveda
 
 * [Clase 1](https://visualizacionuc.github.io/tidy-data/clase1.html)
 * [Clase 2](https://visualizacionuc.github.io/tidy-data/clase2.html)
+
+## Contenidos
+
+* Datos ordenados versus no ordenados
+* Procesar y ordenar datos usando R
+* Publicación en la web usando R (RMarkdown, Shiny, Highcharter y/o D3plus, dependiendo del tiempo que tomen las sesiones anteriores)
 
 ## Bajo Licencia MIT
 
