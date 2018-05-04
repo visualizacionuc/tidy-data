@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1525447644120.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2BE03DD0",
+    "lastKnownWriteTime" : 1525456634,
+    "last_content_update" : 1525456634909,
+    "path" : "~/GitHub/tidy-data/clase3.Rmd",
+    "project_path" : "clase3.Rmd",
+    "properties" : {
+        "chunk_output_type" : "console",
+        "cursorPosition" : "383,0",
+        "scrollLine" : "369"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

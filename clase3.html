@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="clase3_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="clase3_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title"><div id="brand">
+t|1i|2d|3y|1
+</div>
+<div id="brand">
+d|1a|2t|1a|1
+</div></h1>
+    <h2 class="author"><div id="subbrand">
+Joshua Kunst + Pachá, Mayo 2018
+</div></h2>
+</section>
+
+<section id="que-haremos" class="slide level2">
+<h2>¿Qué haremos?</h2>
+<ul>
+<li>Explorar, ordenar, <strong>unir</strong>, graficar y agregar distintos conjuntos de datos</li>
+<li>Desde un ejemplo sentar las bases para trabajar <strong>mejor</strong></li>
+<li>Perder el miedo a <strong>R</strong></li>
+</ul>
+</section>
+<section><section id="introduccion" class="titleslide slide level1 center white" data-background="#2f549e"><h1>Introducción</h1></section><section id="introduccion-1" class="slide level2">
+<h2>Introducción</h2>
+<p>Seguimos con el mismo flujo de datos:</p>
+<p><img src="img/datapipeline.png" /></p>
+</section><section id="repaso-clase-anterior" class="slide level2">
+<h2>Repaso clase anterior</h2>
+<p>No puedo <strong>explicar</strong> sin <strong>entender</strong></p>
+<p><span class="fragment"> El Análisis <strong>Exploratorio</strong> y la Estadística <strong>Descriptiva</strong> son parte clave para el entendimiento</span></p>
+<p><span class="fragment"><span> <i class="fa fa-quote-left"></i> </span> Escuchar lo que los datos nos hablan</span></p>
+</section><section id="conceptos" class="slide level2">
+<h2>Conceptos</h2>
+<ul>
+<li>Una <strong>variable</strong> es una cantidad, que puede ser medida: estatura, magnitud de un sismo, velocidad de un huracán, etc</li>
+<li>Un <strong>valor</strong> es un estado de la variable cuando se mide: 1.20 metros, 8° Richter</li>
+<li>Una <strong>observación</strong> o <strong>caso</strong> es un conjunto de mediciones -no de la misma variable necesariamente- pero si en un mismo instante y a un mismo objeto.</li>
+</ul>
+</section><section id="conceptos-1" class="slide level2">
+<h2>Conceptos</h2>
+<ul>
+<li><strong>Datos tabulados</strong> es un conjunto de <em>valores</em> cada uno asociado a una <em>variable</em> y una <em>observación</em></li>
+</ul>
+<p><img src="img/tidydata.png" /></p>
+</section><section id="conceptos-2" class="slide level2">
+<h2>Conceptos</h2>
+<p><strong>Análisis Exploratorio de Datos</strong></p>
+<ul>
+<li class="fragment">Generar preguntas acerca de los datos</li>
+<li class="fragment">Buscar respuestas visualizando, transformando los datos</li>
+<li class="fragment">Hacer nuevas preguntas a partir de lo aprendido</li>
+</ul>
+<p><span class="fragment"><strong>Generar conocimiento</strong></span></p>
+</section><section id="conceptos-3" class="slide level2">
+<h2>Conceptos</h2>
+<p><strong>Distribución</strong></p>
+<p>Distribución se relaciona a la forma que varían los datos de medición en medición</p>
+<p><span class="fragment">Estudiando la forma de como se distribuyen los datos podemos ver cuales son los más comunes, o ver si exsiten casos raros<span></p>
+<p><span class="fragment">Y variará principalmente del tipo de variable analizada: <strong>categórica</strong> o <strong>continua</strong></span></p>
+</section><section id="conceptos-4" class="slide level2">
+<h2>Conceptos</h2>
+<p><strong>Tipos de Variables</strong></p>
+<ul>
+<li>Categórica
+<ul>
+<li>Nominal. Especie: perro, gato</li>
+<li>Ordinal. Satistacción bueno, malo, …</li>
+</ul></li>
+<li>Cuantitativa
+<ul>
+<li>Discreta. # hijos: 0, 1, 2, …</li>
+<li>Continua. Peso; 3.54, 5.45</li>
+</ul></li>
+</ul>
+</section><section id="conceptos-5" class="slide level2">
+<h2>Conceptos</h2>
+<p><strong>Medidas de Tendencia y Dispersión</strong></p>
+<p>Son indicadores (generalmente un número) obtenidos de los datos que <strong>resumen</strong> información y nos hablan de alguna característica de la <strong>distribución</strong> de la variable</p>
+</section><section id="conceptos-6" class="slide level2">
+<h2>Conceptos</h2>
+<p><strong>Medidas de Tendencia Central</strong></p>
+<p>Nos señalan el valor en <em>torno al cual se concentran los datos</em></p>
+<ul>
+<li><strong>Media</strong> o <strong>Promedio</strong>: La suma de los datos dividido por la cantidad de los mismos</li>
+<li>Mediana: Es el valor que está al medio cuando los datos se ordenan</li>
+<li>Moda: Es el valor que más se repite. Este se usa cuando la variable es <em>discreta</em></li>
+</ul>
+</section><section id="conceptos-7" class="slide level2">
+<h2>Conceptos</h2>
+<p><strong>Medidas de Dispersión</strong></p>
+</section><section id="medidas-de-dispersion" class="slide level2">
+<h2>Medidas de Dispersión</h2>
+<p>Son valores que nos describen la dispersión de los datos. Es decir, <strong>que tan concentrados</strong> están:</p>
+<ul>
+<li><strong>Desviación estándar</strong>: Mide el grado de dispersión en torno a la media</li>
+<li>Rango: Es el tamaño del intervalo que cubren los datos, el mayor valor menos el mínimo</li>
+</ul>
+</section></section>
+<section><section id="lego" class="titleslide slide level1 center white" data-background="#2f549e"><h1>Lego</h1></section><section id="lego-1" class="slide level2">
+<h2>Lego</h2>
+<ul>
+<li class="fragment">Exploraremos los datos de <a href="https://github.com/seankross/lego/">Lego</a></li>
+<li class="fragment">Cada observación es un juguete</li>
+<li class="fragment">Cada variable es una característica tales como nombre, piezas y año de creación</li>
+</ul>
+</section><section id="ejercicio-1" class="slide level2">
+<h2>Ejercicio 1</h2>
+<ul>
+<li class="fragment">Carga el Tidyverse</li>
+<li class="fragment">Carga los datos</li>
+<li class="fragment">Explora los datos con el comando <code>glimpse</code></li>
+</ul>
+</section><section id="solucion-ejercicio-1" class="slide level2">
+<h2>Solución Ejercicio 1</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+legos &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/legos.csv&quot;</span>)
+<span class="kw">glimpse</span>(legos)</code></pre></div>
+<pre><code>## Observations: 6,172
+## Variables: 14
+## $ Item_Number  &lt;chr&gt; &quot;10246&quot;, &quot;10247&quot;, &quot;10248&quot;, &quot;10249&quot;, &quot;10581&quot;, &quot;105...
+## $ Name         &lt;chr&gt; &quot;Detective&#39;s Office&quot;, &quot;Ferris Wheel&quot;, &quot;Ferrari F4...
+## $ Year         &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2...
+## $ Theme        &lt;chr&gt; &quot;Advanced Models&quot;, &quot;Advanced Models&quot;, &quot;Advanced M...
+## $ Subtheme     &lt;chr&gt; &quot;Modular Buildings&quot;, &quot;Fairground&quot;, &quot;Vehicles&quot;, &quot;W...
+## $ Pieces       &lt;int&gt; 2262, 2464, 1158, 898, 13, 39, 32, 105, 13, 11, 5...
+## $ Minifigures  &lt;int&gt; 6, 10, NA, NA, 1, 2, 2, 3, 2, 2, 3, 1, NA, NA, NA...
+## $ Image_URL    &lt;chr&gt; &quot;http://images.brickset.com/sets/images/10246-1.j...
+## $ GBP_MSRP     &lt;dbl&gt; 132.99, 149.99, 69.99, 59.99, 9.99, 16.99, 19.99,...
+## $ USD_MSRP     &lt;dbl&gt; 159.99, 199.99, 99.99, 79.99, 9.99, 19.99, 24.99,...
+## $ CAD_MSRP     &lt;dbl&gt; 199.99, 229.99, 119.99, NA, 12.99, 24.99, 29.99, ...
+## $ EUR_MSRP     &lt;dbl&gt; 149.99, 179.99, 89.99, 69.99, 9.99, 19.99, 24.99,...
+## $ Packaging    &lt;chr&gt; &quot;Box&quot;, &quot;Box&quot;, &quot;Box&quot;, &quot;Box&quot;, &quot;Box&quot;, &quot;Box&quot;, &quot;Box&quot;, ...
+## $ Availability &lt;chr&gt; &quot;Retail - limited&quot;, &quot;Retail - limited&quot;, &quot;LEGO exc...</code></pre>
+</section><section id="ejercicio-2" class="slide level2">
+<h2>Ejercicio 2</h2>
+<ul>
+<li class="fragment">¿Cuántos temas hay en los datos?</li>
+<li class="fragment">Crea un gráfico de barras de la frecuencia de los temas</li>
+</ul>
+</section><section id="solucion-ejercicio-2" class="slide level2">
+<h2>Solución Ejercicio 2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">legos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(Theme, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## # A tibble: 115 x 2
+##    Theme                       n
+##    &lt;chr&gt;                   &lt;int&gt;
+##  1 Duplo                     471
+##  2 Star Wars                 379
+##  3 Town                      314
+##  4 Collectable Minifigures   311
+##  5 City                      282
+##  6 Bionicle                  276
+##  7 Technic                   243
+##  8 Creator                   219
+##  9 Castle                    206
+## 10 Racers                    195
+## # ... with 105 more rows</code></pre>
+</section><section id="solucion-ejercicio-2-1" class="slide level2">
+<h2>Solución Ejercicio 2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(legos) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Theme))</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos3-1.svg" width="576" /></p>
+</section><section id="ejercicio-3" class="slide level2">
+<h2>Ejercicio 3</h2>
+<ul>
+<li class="fragment">¿Es útil la presentación del resultado anterior?</li>
+<li class="fragment">Agrupa los temas transformando la variable a <em>factor</em></li>
+<li class="fragment">Es posible agrupar en las <em>N</em> categorías más grandes y una categoría adicional que agrupe todo lo demás</li>
+<li class="fragment">Para hacer esto usa la función <code>fct_lump</code></li>
+<li class="fragment">Una vez agrupado mejora el gráfico anterior</li>
+</ul>
+</section><section id="solucion-ejercicio-3" class="slide level2">
+<h2>Solución Ejercicio 3</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">legos &lt;-<span class="st"> </span><span class="kw">mutate</span>(legos, <span class="dt">Theme2 =</span> <span class="kw">fct_lump</span>(Theme, <span class="dt">n =</span> <span class="dv">7</span>))
+<span class="kw">ggplot</span>(legos) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Theme2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">30</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos4-1.svg" width="576" /></p>
+</section><section id="solucion-ejercicio-3-1" class="slide level2">
+<h2>Solución Ejercicio 3</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(legos) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Theme2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos5-1.svg" width="576" /></p>
+</section><section id="ejercicio-4" class="slide level2">
+<h2>Ejercicio 4</h2>
+<ul>
+<li class="fragment">¿Cuántos tipos de envoltorio hay en los datos?</li>
+<li class="fragment">Crea un gráfico de barras de la frecuencia de los tipos de envoltorio</li>
+</ul>
+</section><section id="solucion-ejercicio-4" class="slide level2">
+<h2>Solución Ejercicio 4</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">legos <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(Packaging, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## # A tibble: 14 x 2
+##    Packaging                 n
+##    &lt;chr&gt;                 &lt;int&gt;
+##  1 Box                    3102
+##  2 Not specified          1747
+##  3 Polybag                 619
+##  4 Foil pack               291
+##  5 Blister pack            100
+##  6 Canister                 78
+##  7 Loose Parts              72
+##  8 Tub                      40
+##  9 Bucket                   36
+## 10 Other                    36
+## 11 Shrink-wrapped           18
+## 12 Box with backing card    17
+## 13 Plastic box              10
+## 14 Tag                       6</code></pre>
+</section><section id="solucion-ejercicio-4-1" class="slide level2">
+<h2>Solución Ejercicio 4</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(legos) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Packaging)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos7-1.svg" width="576" /></p>
+</section><section id="ejercicio-5" class="slide level2">
+<h2>Ejercicio 5</h2>
+<ul>
+<li class="fragment">Ordena el resultado anterior</li>
+<li class="fragment">Para ordenar por frecuencia puedes usar <code>fct_infreq</code></li>
+</ul>
+</section><section id="solucion-ejercicio-5" class="slide level2">
+<h2>Solución Ejercicio 5</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">legos &lt;-<span class="st"> </span><span class="kw">mutate</span>(legos, <span class="dt">Packaging =</span> <span class="kw">fct_infreq</span>(Packaging))
+<span class="kw">ggplot</span>(legos) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Packaging)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos8-1.svg" width="576" /></p>
+</section><section id="ejercicio-6" class="slide level2">
+<h2>Ejercicio 6</h2>
+<ul>
+<li class="fragment">¿Desde cuándo hay registros de sets de legos?</li>
+<li class="fragment">¿Cuántas piezas traen los sets?</li>
+<li class="fragment">¿Cuántas minifiguras traen los sets?</li>
+<li class="fragment">¿Cuántos sets traen más de 25 figuras? ¿Cuáles son?</li>
+</ul>
+</section><section id="solucion-ejercicio-6" class="slide level2">
+<h2>Solución Ejercicio 6</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(legos) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Registros de sets de legos&quot;</span>)</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos9-1.svg" width="576" /></p>
+</section><section id="solucion-ejercicio-6-1" class="slide level2">
+<h2>Solución Ejercicio 6</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(legos) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Pieces)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Piezas por set de legos&quot;</span>)</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos10-1.svg" width="576" /></p>
+</section><section id="solucion-ejercicio-6-2" class="slide level2">
+<h2>Solución Ejercicio 6</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">legos &lt;-<span class="st"> </span><span class="kw">mutate</span>(legos, <span class="dt">Pieces2 =</span> <span class="kw">ifelse</span>(Pieces <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>, <span class="dv">1000</span>, Pieces))
+<span class="kw">ggplot</span>(legos) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Pieces2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Piezas por set de legos&quot;</span>)</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos11-1.svg" width="576" /></p>
+</section><section id="solucion-ejercicio-6-3" class="slide level2">
+<h2>Solución Ejercicio 6</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(legos) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Minifigures)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Minifiguras por set de legos&quot;</span>)</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/legos12-1.svg" width="576" /></p>
+</section><section id="solucion-ejercicio-6-4" class="slide level2">
+<h2>Solución Ejercicio 6</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">legos <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Minifigures <span class="op">&gt;</span><span class="st"> </span><span class="dv">25</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(Name, Year, Theme, Minifigures)</code></pre></div>
+<pre><code>## # A tibble: 5 x 4
+##   Name                           Year Theme     Minifigures
+##   &lt;chr&gt;                         &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+## 1 The Battle for Helms Deep      2013 Games              28
+## 2 Star Wars: The Battle of Hoth  2012 Games              32
+## 3 Community Workers              2006 Education          31
+## 4 Community Workers              2005 Education          31
+## 5 Community Workers              1996 Dacta              30</code></pre>
+</section></section>
+<section><section id="datasaurus" class="titleslide slide level1 center white" data-background="#2f549e"><h1>Datasaurus</h1></section><section id="ejercicio-7" class="slide level2">
+<h2>Ejercicio 7</h2>
+<ul>
+<li class="fragment">Abre la hoja Datasaurus Dozen en Google Drive (goo.gl/QxkUQx)</li>
+<li class="fragment">Copia el archivo a tu cuenta</li>
+<li class="fragment">Lee el archivo en R directamente desde Google Drive usando el paquete <code>googlesheets</code></li>
+</ul>
+</section><section id="solucion-ejercicio-7" class="slide level2">
+<h2>Solución Ejercicio 7</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(googlesheets)
+datasaurus &lt;-<span class="st"> </span><span class="kw">gs_read</span>(<span class="kw">gs_title</span>(<span class="st">&quot;datasaurus_dozen&quot;</span>))
+datasaurus</code></pre></div>
+<pre><code>## # A tibble: 1,846 x 3
+##    dataset     x     y
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 dino     55.4  97.2
+##  2 dino     51.5  96.0
+##  3 dino     46.2  94.5
+##  4 dino     42.8  91.4
+##  5 dino     40.8  88.3
+##  6 dino     38.7  84.9
+##  7 dino     35.6  79.9
+##  8 dino     33.1  77.6
+##  9 dino     29.0  74.5
+## 10 dino     26.2  71.4
+## # ... with 1,836 more rows</code></pre>
+</section><section id="ejercicio-8" class="slide level2">
+<h2>Ejercicio 8</h2>
+<ul>
+<li class="fragment">¿Cuántas categorías hay en los datos?</li>
+<li class="fragment">Crea dos tablas, una para la categoría <code>away</code> y otra para la categoría <code>dino</code></li>
+<li class="fragment">Calcula la media, desviación estándar y correlación para cada tabla</li>
+</ul>
+</section><section id="solucion-ejercicio-8" class="slide level2">
+<h2>Solución Ejercicio 8</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datasaurus <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">count</span>(dataset)</code></pre></div>
+<pre><code>## # A tibble: 13 x 2
+##    dataset        n
+##    &lt;chr&gt;      &lt;int&gt;
+##  1 away         142
+##  2 bullseye     142
+##  3 circle       142
+##  4 dino         142
+##  5 dots         142
+##  6 high_lines   142
+##  7 h_lines      142
+##  8 slant_down   142
+##  9 slant_up     142
+## 10 star         142
+## 11 v_lines      142
+## 12 wide_lines   142
+## 13 x_shape      142</code></pre>
+</section><section id="solucion-ejercicio-8-1" class="slide level2">
+<h2>Solución Ejercicio 8</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d1 &lt;-<span class="st"> </span>datasaurus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(dataset <span class="op">==</span><span class="st"> &quot;away&quot;</span>)
+d2 &lt;-<span class="st"> </span>datasaurus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(dataset <span class="op">==</span><span class="st"> &quot;dino&quot;</span>)</code></pre></div>
+</section><section id="solucion-ejercicio-8-2" class="slide level2">
+<h2>Solución Ejercicio 8</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d1 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">x_mean =</span> <span class="kw">mean</span>(x), <span class="dt">y_mean =</span> <span class="kw">mean</span>(y),
+    <span class="dt">x_sd =</span> <span class="kw">sd</span>(x), <span class="dt">y_sd =</span> <span class="kw">sd</span>(y),
+    <span class="dt">xy_corr =</span> <span class="kw">cor</span>(x, y)
+  )</code></pre></div>
+<pre><code>## # A tibble: 1 x 5
+##   x_mean y_mean  x_sd  y_sd xy_corr
+##    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1   54.3   47.8  16.8  26.9 -0.0641</code></pre>
+</section><section id="solucion-ejercicio-8-3" class="slide level2">
+<h2>Solución Ejercicio 8</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d2 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">x_mean =</span> <span class="kw">mean</span>(x), <span class="dt">y_mean =</span> <span class="kw">mean</span>(y),
+    <span class="dt">x_sd =</span> <span class="kw">sd</span>(x), <span class="dt">y_sd =</span> <span class="kw">sd</span>(y),
+    <span class="dt">xy_corr =</span> <span class="kw">cor</span>(x, y)
+  )</code></pre></div>
+<pre><code>## # A tibble: 1 x 5
+##   x_mean y_mean  x_sd  y_sd xy_corr
+##    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1   54.3   47.8  16.8  26.9 -0.0645</code></pre>
+</section><section id="ejercicio-9" class="slide level2">
+<h2>Ejercicio 9</h2>
+<ul>
+<li class="fragment">En el ejercicio anterior los resultados son muy similares</li>
+<li class="fragment">¿Asumimos que los datos distribuyen igual?</li>
+</ul>
+</section><section id="solucion-ejercicio-9" class="slide level2">
+<h2>Solución Ejercicio 9</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datasaurus <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(dataset <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;away&quot;</span>, <span class="st">&quot;dino&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(x, y)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">facet_wrap</span>(<span class="st">&quot;dataset&quot;</span>)</code></pre></div>
+<p><img src="clase3_files/figure-revealjs/dino6-1.svg" width="576" /></p>
+</section><section id="ejercicio-10" class="slide level2">
+<h2>Ejercicio 10</h2>
+<ul>
+<li class="fragment">Calcula la media, desviación estándar y correlación para cada categoría en <code>datasaurus</code></li>
+<li class="fragment">Crea mini gráficos para cada categoría</li>
+</ul>
+</section><section id="solucion-ejercicio-10" class="slide level2">
+<h2>Solución Ejercicio 10</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datasaurus <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(dataset) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">x_mean =</span> <span class="kw">mean</span>(x), <span class="dt">y_mean =</span> <span class="kw">mean</span>(y),
+    <span class="dt">x_sd =</span> <span class="kw">sd</span>(x), <span class="dt">y_sd =</span> <span class="kw">sd</span>(y),
+    <span class="dt">xy_corr =</span> <span class="kw">cor</span>(x, y)
+  )</code></pre></div>
+<pre><code>## # A tibble: 13 x 6
+##    dataset    x_mean y_mean  x_sd  y_sd xy_corr
+##    &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 away         54.3   47.8  16.8  26.9 -0.0641
+##  2 bullseye     54.3   47.8  16.8  26.9 -0.0686
+##  3 circle       54.3   47.8  16.8  26.9 -0.0683
+##  4 dino         54.3   47.8  16.8  26.9 -0.0645
+##  5 dots         54.3   47.8  16.8  26.9 -0.0603
+##  6 high_lines   54.3   47.8  16.8  26.9 -0.0685
+##  7 h_lines      54.3   47.8  16.8  26.9 -0.0617
+##  8 slant_down   54.3   47.8  16.8  26.9 -0.0690
+##  9 slant_up     54.3   47.8  16.8  26.9 -0.0686
+## 10 star         54.3   47.8  16.8  26.9 -0.0630
+## 11 v_lines      54.3   47.8  16.8  26.9 -0.0694
+## 12 wide_lines   54.3   47.8  16.8  26.9 -0.0666
+## 13 x_shape      54.3   47.8  16.8  26.9 -0.0656</code></pre>
+</section><section id="solucion-ejercicio-10-1" class="slide level2">
+<h2>Solución Ejercicio 10</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(datasaurus) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(x, y, <span class="dt">color =</span> dataset), <span class="dt">size =</span> <span class="fl">0.6</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;dataset&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+</section><section id="solucion-ejercicio-10-2" class="slide level2">
+<h2>Solución Ejercicio 10</h2>
+<p><img src="clase3_files/figure-revealjs/dino9-1.svg" width="576" /></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="clase3_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="clase3_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'clase3_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+        ]
+      });
+    </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
