@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   echo = TRUE,
   dev = "svg",
-  cache = TRUE
+  cache = FALSE
   )
 
 main_color <- "#E53935"

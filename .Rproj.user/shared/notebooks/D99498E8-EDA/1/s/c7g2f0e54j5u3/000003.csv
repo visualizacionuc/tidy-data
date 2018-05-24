@@ -1,5 +1,0 @@
-"0","```r
-anios_m50_3 <- precipitaciones_ordenado %>% 
-  filter(precipitacion >= 50)
-anios_m50_3
-```"

@@ -1,3 +1,0 @@
-"0","```r
-write_csv(anios_m50_3, \"anios_m50_3.csv\")
-```"

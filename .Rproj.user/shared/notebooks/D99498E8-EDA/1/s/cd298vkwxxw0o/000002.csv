@@ -1,3 +1,0 @@
-"0","```r
-precipitaciones_bruto <- read_excel(\"Copia de DATOS LLUVIAS 1971-2013 arreglado.xlsx\")
-```"

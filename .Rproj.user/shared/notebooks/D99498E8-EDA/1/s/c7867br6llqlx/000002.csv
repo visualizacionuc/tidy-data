@@ -1,5 +1,0 @@
-"0","```r
-jun_2000 <- precipitaciones_ordenado %>% 
-  filter(fecha >= ymd(\"2000-06-12\") & fecha <= ymd(\"2000-06-14\"))
-jun_2000
-```"

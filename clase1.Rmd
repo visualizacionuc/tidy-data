@@ -3,6 +3,7 @@ title: "<div id=\"brand\">t|1i|2d|3y|1</div><div id=\"brand\">d|1a|2t|1a|1</div>
 author: "<div id=\"subbrand\">Joshua Kunst + Pachá, Mayo 2018</div>"
 output:
   revealjs::revealjs_presentation:
+    lib_dir: libs
     self_contained: false
     reveal_plugins: ["zoom"]
     mathjax: null

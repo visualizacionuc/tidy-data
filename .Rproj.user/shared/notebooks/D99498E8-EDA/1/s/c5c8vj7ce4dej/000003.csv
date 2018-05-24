@@ -1,4 +1,0 @@
-"0","```r
-jun_2002 %>% 
-  summarise(precipitacion_total = sum(precipitacion))
-```"
