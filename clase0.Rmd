@@ -164,13 +164,13 @@ data1 %>%
   knitr::kable()
 ```
 
-Cual de las siguientes formas funciona mejor con el títutlo:
+Cual de las siguientes formas funciona mejor con el título:
 
 <span class="fragment">
 __La región del sur exhibe el mayor crecimiento__
 <br>
 <small>
-Adapatado del tweet de [Lisa Charlotte Rost](https://twitter.com/lisacrost/status/948233069110222848)
+Adaptado del tweet de [Lisa Charlotte Rost](https://twitter.com/lisacrost/status/948233069110222848)
 que a su vez está viene del ejemplo del libro "Show me the numbers" de Stephen Few
 </small>
 </span>
