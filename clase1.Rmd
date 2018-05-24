@@ -25,6 +25,7 @@ editor_options:
 
 ```{r, include = FALSE}
 source("R/setup.R")
+knitr::opts_chunk$set(fig.path = "img/clase01/")
 ```
 
 ## ¿Qué haremos?

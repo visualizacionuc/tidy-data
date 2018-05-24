@@ -918,7 +918,7 @@ Joshua Kunst + Pachá, Mayo 2018
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># Gráfico de barras de pasajeros por sexo</span></a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">ggplot</span>(passengers, <span class="kw">aes</span>(<span class="dt">x =</span> Sex)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
-<p><img src="clase1_files/figure-revealjs/unnamed-chunk-14-1.svg" width="576" /></p>
+<p><img src="img/clase01/unnamed-chunk-14-1.svg" width="576" /></p>
 </section><section id="ejercicio-10-uso-de-geom_point" class="slide level2">
 <h2>Ejercicio 10: Uso de geom_point</h2>
 <p>¿Se correlaciona la edad de los pasajeros con el precio del pasaje?</p>
@@ -927,7 +927,7 @@ Joshua Kunst + Pachá, Mayo 2018
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># Gráfico de puntos de edad vs valor del pasaje</span></a>
 <a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">ggplot</span>(passengers, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Fare)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb25-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<p><img src="clase1_files/figure-revealjs/unnamed-chunk-15-1.svg" width="576" /></p>
+<p><img src="img/clase01/unnamed-chunk-15-1.svg" width="576" /></p>
 </section><section id="solucion-ejercicio-10-1" class="slide level2">
 <h2>Solución Ejercicio 10</h2>
 <ul>
@@ -942,7 +942,7 @@ Joshua Kunst + Pachá, Mayo 2018
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># Gráfico de puntos de edad vs valor del pasaje coloreado por sexo</span></a>
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">ggplot</span>(passengers <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">drop_na</span>(), <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Fare, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb26-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<p><img src="clase1_files/figure-revealjs/unnamed-chunk-16-1.svg" width="576" /></p>
+<p><img src="img/clase01/unnamed-chunk-16-1.svg" width="576" /></p>
 </section><section id="ejercicio-12-uso-de-facet_grid" class="slide level2">
 <h2>Ejercicio 12: Uso de facet_grid</h2>
 <p>¿Cómo lo harías para incorporar la variable sobrevivencia al gráfico anterior y ver si acaso se observa una tendencia?</p>
@@ -952,7 +952,7 @@ Joshua Kunst + Pachá, Mayo 2018
 <a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">ggplot</span>(passengers1, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Fare, <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb27-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb27-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span>Survived)</a></code></pre></div>
-<p><img src="clase1_files/figure-revealjs/unnamed-chunk-17-1.svg" width="576" /></p>
+<p><img src="img/clase01/unnamed-chunk-17-1.svg" width="576" /></p>
 </section><section id="ejercicio-13-uso-de-geom_bar" class="slide level2">
 <h2>Ejercicio 13: Uso de geom_bar</h2>
 <p>Ahora construye un gráfico de barras que se cuenta de la variable sexo, esta vez separado por sobrevivencia.</p>
@@ -961,7 +961,7 @@ Joshua Kunst + Pachá, Mayo 2018
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># Gráfico de barras de pasajeros por sexo separado por sobrevivencia</span></a>
 <a class="sourceLine" id="cb28-2" data-line-number="2"><span class="kw">ggplot</span>(passengers1, <span class="kw">aes</span>(<span class="dt">x =</span> Sex, <span class="dt">fill =</span> Survived)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb28-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_bar</span>()</a></code></pre></div>
-<p><img src="clase1_files/figure-revealjs/unnamed-chunk-18-1.svg" width="576" /></p>
+<p><img src="img/clase01/unnamed-chunk-18-1.svg" width="576" /></p>
 </section><section id="recapitulando-2" class="slide level2">
 <h2>Recapitulando</h2>
 <ul>
