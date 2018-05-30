@@ -44,7 +44,7 @@ knitr::opts_chunk$set(
 ## Esquema
 
 > - Visualización en el Análsis + Práctico
-> - Introducción al Análisis Exploratorio de Datos + Práctivo
+> - Introducción al Análisis Exploratorio de Datos + Práctico
 > - Práctico
 
 
