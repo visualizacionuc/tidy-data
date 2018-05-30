@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>clase1.5.utf8</title>
+  <title></title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -468,7 +468,7 @@ Joshua Kunst + Pachá, Mayo 2018
 <li>práctico</li>
 </ul>
 </section>
-<section><section id="estadistica" class="title-slide slide level1 center white" data-background="#2f549e"><h1>Estadística</h1></section><section id="definiciones" class="slide level2">
+<section><section id="estadistica" class="titleslide slide level1 center white" data-background="#2f549e"><h1>Estadística</h1></section><section id="definiciones" class="slide level2">
 <h2>Definiciónes</h2>
 <ul>
 <li>Estadística. Rama matemática que estudia observaciones/mediciones de una población (usualmente de una muestra)</li>
@@ -478,7 +478,7 @@ Joshua Kunst + Pachá, Mayo 2018
 </section><section id="tipos-de-estadistica" class="slide level2">
 <h2>Tipos de Estadística</h2>
 <p>Descriptiva e Inferencial</p>
-<p><img data-src="img/types.png" /></p>
+<p><img src="img/types.png" /></p>
 </section><section id="distribucion" class="slide level2">
 <h2>Distribución</h2>
 <p>Distribución se relaciona a la forma que varían los datos de medición en medición</p>
@@ -515,8 +515,112 @@ Joshua Kunst + Pachá, Mayo 2018
 <li>Rango: Es el tamaño del intervalo que cubren los datos, el mayor valor menos el mínimo</li>
 <li>Quantiles: Valores donde se acumula % de información</li>
 </ul>
-</section><section id="ejemplo-entrete" class="slide level2">
-<h2>Ejemplo entrete</h2>
+</section><section id="ejercicio" class="slide level2">
+<h2>Ejercicio</h2>
+<p>Supongamos que debemos decidir en curso debe ir nuestro hijo/sobrino/simil, entre el curso <strong>narnajo</strong> o <strong>azul</strong>. Nos dicen que el promedio de notas finales del año anterior para cada curso fue.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">curso</th>
+<th style="text-align: right;">cantidad_de_alumnos</th>
+<th style="text-align: right;">promedio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">azul</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">5.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">naranjo</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">4.99</td>
+</tr>
+</tbody>
+</table>
+</section><section class="slide level2">
+
+<p>Más información:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">curso</th>
+<th style="text-align: right;">cantidad_de_alumnos</th>
+<th style="text-align: right;">promedio</th>
+<th style="text-align: right;">maxima_nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">azul</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">5.23</td>
+<td style="text-align: right;">7.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">naranjo</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">4.99</td>
+<td style="text-align: right;">5.53</td>
+</tr>
+</tbody>
+</table>
+</section><section class="slide level2">
+
+<p><img src="img/clase01.5/unnamed-chunk-5-1.svg" width="960" /></p>
+</section><section class="slide level2">
+
+<p>Quizás un poco más de información ayuda</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">estadistico</th>
+<th style="text-align: right;">azul</th>
+<th style="text-align: right;">naranjo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cantidad_de_alumnos</td>
+<td style="text-align: right;">50.00</td>
+<td style="text-align: right;">50.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">desviacion_estandiar</td>
+<td style="text-align: right;">1.33</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">maximo</td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">5.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mediana</td>
+<td style="text-align: right;">4.65</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">minimo</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">4.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">promedio</td>
+<td style="text-align: right;">5.23</td>
+<td style="text-align: right;">4.99</td>
+</tr>
+</tbody>
+</table>
+</section><section id="algunas-frases" class="slide level2">
+<h2>Algunas frases</h2>
+<ul>
+<li class="fragment">El promedio no vale mucho sin un indicador de variablidad</li>
+<li class="fragment">Guiarse por un valor solamente es usualmente peligroso para tomar de decisiones</li>
+</ul>
+</section><section id="ejemplo-entrete-interactivo" class="slide level2">
+<h2>Ejemplo <sub>entrete</sub> Interactivo</h2>
 <p><a href="https://rawgit.com/juba/uniquanti/master/index.html" class="uri">https://rawgit.com/juba/uniquanti/master/index.html</a></p>
 </section></section>
     </div>

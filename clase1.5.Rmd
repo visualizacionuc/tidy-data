@@ -125,7 +125,98 @@ Son valores que nos describen la dispersión de los datos. Es decir, __que tan c
 >- Rango: Es el tamaño del intervalo que cubren los datos, el mayor valor menos el mínimo
 >- Quantiles: Valores donde se acumula % de información
 
-## Ejemplo entrete
+## Ejercicio
+
+Supongamos que debemos decidir en curso debe ir nuestro hijo/sobrino/simil, entre el 
+curso __narnajo__ o __azul__. Nos dicen que el promedio de notas finales del año anterior
+para cada curso fue.
+
+
+```{r}
+set.seed(123)
+
+N <- 50
+curso2 <- rgamma(N, scale = 6.5, shape = 1)
+curso2 <- curso2 + rnorm(N)*2
+curso2 <- ifelse(curso2 < 4, 4, curso2)
+curso2 <- ifelse(curso2 > 7, 7, curso2)
+
+curso1 <- rnorm(50, mean = mean(curso2) - 0.2, sd = 0.25)
+curso1 <- ifelse(curso1 < 4, 4, curso1)
+curso1 <- ifelse(curso1 > 7, 7, curso1)
+
+# summary(curso1)
+# hist(curso1, breaks = 10)
+
+
+df <- data_frame(
+  curso = rep(c("azul", "naranjo"), each = N),
+  nota = c(curso2, curso1)
+)
+
+df %>% 
+  group_by(curso) %>% 
+  summarise(
+    cantidad_de_alumnos = n(),
+    promedio = mean(nota)
+    ) %>%
+  mutate_if(is.numeric, round, 2) %>% 
+  knitr::kable()
+```
+
+---- 
+
+Más información:
+
+```{r}
+df %>% 
+  group_by(curso) %>% 
+  summarise(
+    cantidad_de_alumnos = n(),
+    promedio = mean(nota),
+    maxima_nota = max(nota)
+    ) %>%
+  mutate_if(is.numeric, round, 2) %>% 
+  knitr::kable()
+```
+
+----
+
+```{r}
+ggplot(df) + 
+  geom_histogram(aes(nota, fill = curso)) + 
+  facet_wrap(~curso) + 
+  scale_fill_viridis(discrete = TRUE, begin = .2, end = .8, option = "B") 
+```
+
+----
+
+Quizás un poco más de información ayuda
+
+```{r}
+df %>% 
+  group_by(curso) %>% 
+  summarise(
+    cantidad_de_alumnos = n(),
+    promedio = mean(nota),
+    desviacion_estandiar = sd(nota),
+    mediana = median(nota),
+    minimo = min(nota),
+    maximo = max(nota)
+    ) %>% 
+  gather(estadistico, valor, -curso) %>% 
+  spread(curso, valor) %>%
+  mutate_if(is.numeric, round, 2) %>% 
+  knitr::kable()
+```
+
+
+## Algunas frases
+
+- El promedio no vale mucho sin un indicador de variablidad
+- Guiarse por un valor solamente es usualmente peligroso para tomar de decisiones
+
+## Ejemplo ~entrete~ Interactivo
 
 https://rawgit.com/juba/uniquanti/master/index.html
 
