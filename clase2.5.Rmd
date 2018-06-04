@@ -1,0 +1,153 @@
+---
+title: "<div id=\"brand\">t|1i|2d|3y|1</div><div id=\"brand\">d|1a|2t|1a|1</div>"
+author: "<div id=\"subbrand\">Joshua Kunst + Pachá, Mayo 2018</div>"
+output:
+  revealjs::revealjs_presentation:
+    lib_dir: libs
+    self_contained: false
+    reveal_plugins: ["zoom"]
+    mathjax: null
+    transition: fade
+    css: ["css/styles.css"]   
+    incremental: true
+    center: false
+    theme: simple
+    fig_width: 8
+    fig_height: 5.5
+    reveal_options:
+      slideNumber: true
+      controls: false
+      mouseWheel: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+source("R/setup.R")
+knitr::opts_chunk$set(
+  fig.path = "img/clase02.5/",
+  echo = FALSE,
+  fig.width = 10,
+  fig.height = 6
+  )
+```
+
+## ¿Qué haremos hoy?
+
+> - Algunas buenas prácticas
+> - Práctico. Ejemplo guiado (continuación)
+> - Despedirnos
+
+<span class="fragment">Esto no es un Adiós</span>
+<span class="fragment">. Es un nunca más nos volveremos a ver</span>
+
+
+# Recomendaciones Técnicas { .center .white data-background="#2f549e"}
+
+## Recomendaciones Técnicas
+
+<!-- https://twitter.com/MetricsHulk/status/728014668913102848 -->
+<img src="https://pbs.twimg.com/media/Chpte5BVEAA-ppy.jpg" width="80%"/>
+
+## Puntos de Referencia { .right data-background="img/map-location-pin.jpg"} 
+
+## Puntos de Referencia
+
+<img src="img/pinera.jpg" >
+
+## Puntos de Referencia
+
+<img src="img/pinera2.jpg" >
+
+## Puntos de Referencia
+
+```{r}
+data2 <- data_frame(
+  indice = c(30.7, 22.8, 27.3),
+  tiempo = c(2010, 2013, 2016),
+  c = c("r", "b", "r")
+)
+
+ggplot(data2, aes(factor(tiempo), indice)) + 
+  geom_col(aes(fill = c), width = 0.75) +
+  geom_text(aes(label = paste0(indice, "%")), color = "white", size = 5, vjust = 2) +
+  scale_color_manual(values = c("#D61740", "#195E87")) +
+  labs(x = "Año", y = "Índice") + 
+  theme(axis.text.y = element_blank(), legend.position="none")
+```
+
+## Convenciones (Ejercicio 2)
+
+<!-- https://twitter.com/MetricsHulk/status/735913911212515329 -->
+
+<img src="https://pbs.twimg.com/media/CjZ9zUjWUAAkWEt.jpg" width="40%" />
+
+## Convenciones
+
+<img src="img/gun.jpg" width="40%" />
+
+# Recomendaciones Estilo { .center .white data-background="#607D8B"}
+
+## Tipografía
+
+Conocen a ..?
+
+<span class="fragment"><h1><font face="Arial">Arial</font></h1></span>
+<span class="fragment"><h1><font face="Times New Roman">Times New Roman</font></h1></span>
+<span class="fragment"><h1><font face="Comic Sans MS">Comic Sans</font></h1></span>
+
+## { data-background="img/comicsanscriminal.png"}
+
+## Cada vez que veo(mos) Comic Sans { .white .right data-background="https://media.giphy.com/media/7yDthHaq2haXS/giphy.gif"}
+
+## Tipografía
+
+Según <font face="Comic Sans MS">[comic sans criminal](http://www.comicsanscriminal.com/)</font>:
+
+- Fuentes tienen personalidad
+- Tiene un propósito
+- Armonía en el universo
+
+## { data-background="https://i.pinimg.com/736x/a4/60/86/a460865501618b73cf64db7f4b345745--middle-earth-map-hobbit-party.jpg"}
+
+## Colores
+
+La misma idea de las convenciones!
+
+## Colores
+
+```{r}
+df <- data_frame(
+  pais = c("Chile", "Colombia", "Argentina", "Bolivia"),
+  crecimiento = c(6, 5, 4, 4)/10
+) %>% 
+  mutate(pais = fct_inorder(pais))
+
+ggplot(df) +
+  geom_col(aes(pais, crecimiento, fill = pais), width = 0.5, alpha = 0.8) + 
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("yellow", "black", "green", "blue")) +
+  theme(legend.position = "none")
+```
+
+## Colores
+
+```{r}
+ggplot(df) +
+  geom_col(aes(pais, crecimiento, fill = pais), width = 0.5) + 
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("#C8152B", "#FDD116", "#4F75AF", "#2C9A05")) +
+  theme(legend.position = "none")
+```
+
+## Colores
+
+```{r}
+ggplot(df) +
+  geom_col(aes(pais, crecimiento, fill = pais), width = 0.5) + 
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("#C8152B", "#9F9F9F", "#9F9F9F", "#9F9F9F")) +
+  theme(legend.position = "none")
+```
+
+## { data-background="https://media.giphy.com/media/JzOyy8vKMCwvK/giphy.gif" }
